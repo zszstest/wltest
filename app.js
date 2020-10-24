@@ -39,5 +39,14 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection of wltest app has been established successfully.');
+  })
+  .catch((err) => {
+    console.error('Unable to connect to the database:', err);
+  });
+
 
 module.exports = app;
